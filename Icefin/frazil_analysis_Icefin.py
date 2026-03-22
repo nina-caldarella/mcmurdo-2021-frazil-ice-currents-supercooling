@@ -7,8 +7,7 @@ import cv2
 import os
 import time
 import glob
-
-
+import re
 import os, glob
 import numpy as np
 import cv2
@@ -54,15 +53,14 @@ def frazil_spectrum(path_v, video_file, start_time, thresh=40, retrieval_mode="R
     else:
         # Collect image files (sorting by ctime)
         image_files = sorted(
-            glob.glob(os.path.join(background_subtracted_path, "*foreground_clahe_masked.jpg")),
-            key=os.path.getctime
+            glob.glob(os.path.join(background_subtracted_path, "*foreground_clahe_masked.jpg"))
         )
+        image_files = sorted(image_files, key=frame_index_key)
         if len(image_files) == 0:
             raise FileNotFoundError(
                 f"No images found at: {background_subtracted_path} "
                 f"with pattern '*foreground_clahe_masked.jpg'"
             )
-
         # ---------- FIRST PASS: raw contour counts using chosen mode ----------
         raw_counts = []
         rel_areas = []        # fraction in [0, 1]
@@ -136,12 +134,10 @@ def frazil_spectrum(path_v, video_file, start_time, thresh=40, retrieval_mode="R
                 os.makedirs(binary_path, exist_ok=True)
                 os.makedirs(os.path.join(binary_path, "with_contours"), exist_ok=True)
             if im_count==1:
-                print(os.path.join(binary_path, "with_contours", f"{im_count}.jpg"))
                 cv2.imwrite(os.path.join(binary_path, "with_contours", f"{im_count}.jpg"), binary_rgb)
-                print(os.path.join(binary_path, f"{im_count}.jpg"))
                 cv2.imwrite(os.path.join(binary_path, f"{im_count}.jpg"), binary_image)
-            #else:
-                #os.remove(processed_image_path)
+            else:
+                os.remove(processed_image_path)
 
             im_count += 1
 
@@ -174,6 +170,12 @@ def frazil_spectrum(path_v, video_file, start_time, thresh=40, retrieval_mode="R
         # Write and return
         ds.to_netcdf(out_nc, engine="netcdf4")
     return ds
+
+def frame_index_key(path: str) -> int:
+    name = os.path.basename(path)
+    # Extract the last number in the filename; adjust the regex to your pattern if needed
+    m = re.findall(r'(\d+)', name)
+    return int(m[-1]) if m else -1  # put “numberless” files first (or raise)
 
 
 def analyze_IcefinCam(ds_sizes, tau=1/30, max_range=60.0, bin_width=1e-3):

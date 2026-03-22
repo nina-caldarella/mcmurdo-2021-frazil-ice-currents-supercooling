@@ -68,7 +68,8 @@ def extract_frames_period(path_v, video_file, start_time):
     # Open the video file
     video = cv2.VideoCapture(os.path.join(path_v, video_file))
     if not video.isOpened():
-        print("Error: Could not open video.")
+        print("Error: Could not open video. It's a 100 GB file, request access.")
+        print("Processing will continue with provided frames.")
 
     # Get the frames per second (fps)
     fps = video.get(cv2.CAP_PROP_FPS)
