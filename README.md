@@ -1,4 +1,4 @@
-# Processing Code for 2021 Supercooling, Frazil Ice, CTD, CT, ADCP, and Icefin Analyses
+# Processing code for 2021 McMurdo frazil ice, currents and supercooling data
 
 This repository contains the processing scripts and notebooks used for the analyses presented in the preprint (submitted to *Journal of Geophysical Research: Oceans*) and archived on Zenodo under DOI: **10.5281/zenodo.18687544**.
 
