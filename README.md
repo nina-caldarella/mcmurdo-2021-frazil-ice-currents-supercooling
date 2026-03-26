@@ -1,6 +1,6 @@
 # Processing code for 2021 McMurdo frazil ice, currents and supercooling data
 
-This repository contains the processing scripts and notebooks used for the analyses presented in the preprint (submitted to *Journal of Geophysical Research: Oceans*) and archived on Zenodo under DOI: **10.5281/zenodo.18687544**.
+This repository contains the processing scripts and notebooks used for the analyses presented in the manuscript (to be submitted to *Journal of Geophysical Research: Oceans*) and archived on Zenodo under DOI: **10.5281/zenodo.18687544**.
 
 The code supports the processing of ADCP, CT, CTD, and Icefin data collected in 2021, including calibration procedures, uncertainty analysis, frazil‑ice property extraction, and supercooling calculations.
 
