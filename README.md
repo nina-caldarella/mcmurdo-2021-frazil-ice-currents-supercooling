@@ -80,7 +80,7 @@ Below is an overview of all scripts and notebooks included in this repository, g
 
 ---
 
-### **Cross‑Instrument Analyses**
+### **Cross‑Instrument and Uncertainty Analyses**
 - **`ADCP_and_Icefin.ipynb`**  
   Compares apparent frazil‑ice concentration (Icefin) with ADCP‑derived frazil proxy.
 
