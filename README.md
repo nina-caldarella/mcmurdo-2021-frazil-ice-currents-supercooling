@@ -114,7 +114,8 @@ A full journal citation will be added upon publication in *JGR Oceans*.
 
 ## ✅ Notes
 
-- The repository contains **research‑grade processing pipelines**, not optimized for general deployment.  
+- The repository contains **research‑grade processing pipelines**, not optimized for general deployment.
+- Download "DATA.zip" from Zenodo and keep it two directories down from this code
 - Some notebooks require manual file‑path configuration depending on your data directory structure.  
 - All analysis steps match those used in the submitted manuscript.
 
