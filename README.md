@@ -105,7 +105,7 @@ Below is an overview of all scripts and notebooks included in this repository, g
 
 If you use this repository, please cite the Zenodo record:
 
-> **Caldarella et al. (2025)**. *Data and code for 2021 McMurdo frazil ice, currents and supercooling analyses*.  
+> **Caldarella et al. (2026)**. *Data and code for 2021 McMurdo frazil ice, currents and supercooling analyses*.  
 > Zenodo. DOI: **10.5281/zenodo.18687544**
 
 A full journal citation will be added upon publication in *JGR Oceans*.
